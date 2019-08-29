@@ -1,0 +1,20 @@
+#! /usr/bin/perl
+# It would be great if this could run as C# code in the perlesque process and
+# avoid the mono restart overhead (and, for that matter, run without mono
+# and perl available.).  TBD.
+
+use Term::ReadLine;
+use strict;
+use warnings;
+
+my $rl = Term::ReadLine->new("Perlesque RE(p)L");
+
+my $OUT = $rl->OUT || \*STDOUT;
+
+while (defined (my $line = $rl->readline("psq> "))) {
+    open PSQ, "| mono -O=-all,cfold Sprixel/bin/Release/perlesque.exe /dev/fd/0"
+        or die "fork: $!";
+    print PSQ $line or die "print: $!";
+    close PSQ; #unchecked
+    $rl->addhistory($line) if $line =~ /\S/;
+}

@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Perlesque Documentation</title></head><body>
+<h1>Perlesque Documentation<br>
+</h1>
+<h2>Purpose</h2>
+Perlesque is meant to be a language that is similar to Perl 6. A subset
+of Perl 6 is implemented as Perlesque.&nbsp; Perlesque is translated
+into .net bytecode. So it is expected that it is executed efficiently
+and fast in .net environment. It is not meant to be used as a real
+language. It is created so that any new Perl 6 compiler can use it as a
+back-end. It is also hoped new compiler developers find it easier to
+use it compared to C# for example.<br>
+Since Perlesque is executed under .net, all libraries of .net are
+available for Perlesque as well. It can be also used with Mono.<br>
+
+<h2>Syntax of the language</h2>
+The language itself is defined under /Sprixel/src/Perlesque directory. This is meant to be an extract of it.<br>
+<br>
+Each token of the language can be separated by white space.<br>
+<br>
+To describe the syntax the following notation will be used:<br>
+&lt;non-terminal name&gt;&nbsp; - this denotes a non-terminal<br>
+terminal - this denotes a terminal or a concrete token.<br>
+"terminal" - denotes a terminal between double quotes.<br>
+[] - to show something is optional<br>
+[]*&nbsp; to show something is optional and can be repeated<br>
+{ and } and ; and () represent themself<br>
+<br>
+<br>
+<h3>Comments</h3>
+There are single line comments in this language. Comments start with #. They can occur anywhere between any two tokens.<br>
+E.g $r=8*8 ; # square of 8<br>
+<br>
+<h3>Statements</h3>
+<br>
+The basic unit of the language is a statement. Each statement is separated by semicolon.<br>
+<br>
+E.g. $a=4;<br>
+&nbsp; say($a);<br>
+<br>
+<h3>Block of statements</h3>
+Statements can be grouped in a block. To do so, the block must start with { and end with }.<br>
+There are statements that can or must contain a block of statements (For example if statement).<br>
+Block of statements have to be followed by ; if there are statements after it.<br>
+<br>
+E.g <br>
+{<br>
+$b=3;<br>
+$c=4;<br>
+}<br>
+<br>
+<h3>Terms</h3>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">Terminal<br>
+      </td>
+      <td style="vertical-align: top;">Syntax of a Term with a regular expression or with the syntax notation of this document<br>
+      </td>
+      <td style="vertical-align: top;">Example<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Variable name<br>
+      </td>
+      <td style="vertical-align: top;">[_a-z0-9]+<br>
+      </td>
+      <td style="vertical-align: top;">_i7<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Scalar reference<br>
+      </td>
+      <td style="vertical-align: top;">\$[_a-z0-9]+</td>
+      <td style="vertical-align: top;">$u8i_<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Array reference<br>
+      </td>
+      <td style="vertical-align: top;">\@[_a-z0-9]+</td>
+      <td style="vertical-align: top;">@u8i_</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Contextual reference<br>
+      </td>
+      <td style="vertical-align: top;">\$\*[_a-z0-9]+</td>
+      <td style="vertical-align: top;">$*gvar<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Decimal literal<br>
+      </td>
+      <td style="vertical-align: top;">-?[_0-9]+<br>
+      </td>
+      <td style="vertical-align: top;">7_544 or -3<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">String literal<br>
+      </td>
+      <td style="vertical-align: top;">'(\\'|.)*'<br>
+"(\\"|.)*"<br>
+      </td>
+      <td style="vertical-align: top;">'message' '\''<br>
+"reminder" "this is a double quote:\""<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Class name with namespace<br>
+      </td>
+      <td style="vertical-align: top;">[_a-z0-9]+(::[_a-z0-9]+)*</td>
+      <td style="vertical-align: top;">dogs::mydog<br>
+dogs::mydog::nose<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Subroutine invocation<br>
+No space is allowed before (.<br>
+      </td>
+      <td style="vertical-align: top;">&lt;variable name&gt; (&nbsp; &lt;argument list&gt; &nbsp;&nbsp;&nbsp; )<br>
+      <br>
+&lt;scalar reference&gt; (  &lt;argument list&gt;)<br>
+&lt;argument list&gt; is &lt;expression&gt; [, expression]*<br>
+      </td>
+      <td style="vertical-align: top;">summarize_errors($t+1,$e+4);<br>
+$sub(42);<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Static invocation<br>
+      </td>
+      <td style="vertical-align: top;">&lt;classname with namespace&gt; . &lt;method name&gt;&nbsp; (&nbsp;&nbsp; &lt;argument list&gt; &nbsp;&nbsp;&nbsp;&nbsp; )<br>
+&lt;method name&gt; is &lt;variable name&gt;<br>
+      </td>
+      <td style="vertical-align: top;">terra::cooldown.reducegreengasesby(0.4);<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Operators</h3>
+These are the operators that are recognised by the language.<br>
+All operators have the same precedence. So brackets must be used in
+simple cases such as 3+7*8. So in Perlesque , this should be written as
+3+(7*8). Otherwise, it would be interpreted as (3+7)*8.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">Operator(s)<br>
+      </td>
+      <td style="vertical-align: top;">Type<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">++<br>
+      </td>
+      <td style="vertical-align: top;">two versions:unary prefix(left-associative) and postfix(right associative)<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">--<br>
+      </td>
+      <td style="vertical-align: top;">two versionsunary prefix(left-associative) and postfix(right associative)</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">+ - * / % &lt;&lt; &gt;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+      </td>
+      <td style="vertical-align: top;">binary infix arithmetic operators.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&amp;&amp; -logical and<br>
+&nbsp;|| -logical or<br>
+^^ - logical xor<br>
+      </td>
+      <td style="vertical-align: top;">binary infix logical operators<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&amp;&nbsp; |&nbsp; ^<br>
+      </td>
+      <td style="vertical-align: top;">binary infix bitwise operators<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&lt;&nbsp; &gt;&nbsp; &lt;=&nbsp; &gt;= ==&nbsp; !=<br>
+      </td>
+      <td style="vertical-align: top;">binary infix comparison operators<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">There exist assignment related versions of these operators where it is applicable.<br>
++= -= *= /= %= &lt;&lt;= &gt;&gt;= &amp;= |= ^=<br>
+      <br>
+      </td>
+      <td style="vertical-align: top;">operators combined with assignment<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h3>Declarations</h3>
+Each declaration like statements end with a semicolon.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">Syntax<br>
+      </td>
+      <td style="vertical-align: top;">Example<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">my &lt;typename&gt; &lt;scalar reference&gt;;<br>
+my &lt;scalar reference&gt; = &lt;initialiser&gt;;<br>
+&lt;typename&gt; is Callable"[" :( &lt;type parameter list&gt; --&gt; &lt;return type&gt;)"]"<br>
+&lt;typename&gt; is &lt;parametric type name&gt; [ "[" &lt;type parameter list&nbsp; "]" ]<br>
+      </td>
+      <td style="vertical-align: top;">my int8 $o;<br>
+my $b=5;<br>
+Callable[:(FrameBase--&gt;int)]<br>
+int8 or int32[Single,int64]<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">my &lt;contextual reference&gt; = &lt;initialiser&gt;;<br>
+      </td>
+      <td style="vertical-align: top;">my $*i=100;<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">sub&nbsp; &lt;subroutine name&gt; (&nbsp; &lt;parameter list&gt; [--&gt; &lt;return type&gt;] ) {&nbsp; statement(s)&nbsp; }<br>
+&lt;parameter list&gt; is &lt;type name&gt; &lt; variable name&gt; [, &lt;type name&gt; &lt; variable name&gt;]*<br>
+      <br>
+      </td>
+      <td style="vertical-align: top;">sub calculate(int32 p1 --&gt; int32)<br>
+{<br>
+      <br>
+}<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">class
+&lt;classname&gt; [is &lt;parent type&gt;]&nbsp; { [...]&nbsp;
+[&lt;class statement block&gt; or &lt;class statement non-block&gt;]*
+&lt;class&gt; }<br>
+&lt;classname&gt; is a &lt;variable name&gt;<br>
+      <br>
+&lt;class statement block&gt; is &lt;method declaration&gt;<br>
+or &lt;if block&gt; or &lt;unless block&gt; or &lt;while block&gt; or &lt;until block&gt; <br>
+or &lt;repeat while block&gt; or &lt;repeat until block&gt; or &lt;loop block&gt;<br>
+or &lt;statement list block&gt;<br>
+      <br>
+&lt;class statement non-block&gt; is &lt;field declaration&gt;<br>
+or &lt;goto statement&gt; or &lt;next statement&gt; or &lt;last statement&gt;<br>
+or &lt;repeat while statement&gt; or &lt;my declaration&gt; or<br>
+&lt;contextual assignment&gt; or &lt;sub declaration&gt;<br>
+      <br>
+All methods are virtual.<br>
+      <br>
+&lt;method declaration&gt; is method &lt;subroutine name&gt; (
+&lt;parameter list&gt; [--&gt; &lt;return type&gt;]) {
+statement(s)&nbsp; }<br>
+&lt;field declaration&gt; is has &lt;field type&gt; &lt;scalar reference&gt;<br>
+&lt;fieldtype&gt; is &lt;type name&gt;<br>
+      <span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0); font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;"><span class="Apple-style-span" style="border-collapse: collapse; font-family: monospace; font-size: 12px; white-space: pre;"></span></span><br>
+      </td>
+      <td style="vertical-align: top;">class bookings is bookinginterface<br>
+{<br>&nbsp;&nbsp;&nbsp;
+      my $bar = "ok 3";<br>
+&nbsp;&nbsp;&nbsp; say($bar);<br>
+&nbsp;&nbsp;&nbsp; has str $attr;<br>
+&nbsp;&nbsp;&nbsp; method foo(str $ok6 --&gt; int) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say($ok6);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 1;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+}<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Controlling the Flow</h3>
+<br>
+The language has these constructs to change how the program is
+executed:&nbsp; if, while, repeat/while ,repeat/until. unless, until,
+loop,last, next, return and goto statement.<br>
+<br>
+If, while, unless, loop.Repeat/while,repeat/until, unless, until need
+to contain a statement block. ("{" list of statements&nbsp; "}")<br>
+<br>
+<br>
+An example of if in block form:<br>
+if&nbsp; $b { say ("hello");&nbsp;  say ("world!"); }<br>
+<br>
+Conditions after while/until/unless keyword need to be between brackets. Perlesque is stricter than Perl 6 in this regard.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">Statement syntax<br>
+      </td>
+      <td style="vertical-align: top;">Example<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">if&nbsp; &lt;condition&gt; {&nbsp; &lt;list of statements&gt;&nbsp; }&nbsp; <span style="font-weight: bold;"></span><br>
+elsif ( &lt;condition&gt; ) {&lt;list of statements&gt;}&nbsp; <span style="font-weight: bold;"></span><br>
+else {&lt;list of statements&gt;} <br>
+elsif is optional and can be chained/ repeated after if.<br>
+else is optional and must come last.<br>
+      </td>
+      <td style="vertical-align: top;">if&nbsp; $b {say ("hello");}<br>
+elsif ($c) {say ("bye!");}<br>
+elsif($d) {say ("Again!");}<br>
+else {say ("unexpected!"); }<br>
+      <br>
+ </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">loop ( &lt;statement&gt; ; &lt;condition&gt; ; &lt;tail statement&gt;) { &lt;statement(s)&gt; }<br>
+loop { &lt;statement(s)&gt; }<br>
+      </td>
+      <td style="vertical-align: top;">loop ($i=1;$i&lt;=9;$i++)<br>
+{<br>
+&nbsp;$k=$k*$i;<br>
+}<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">while (&lt;condition&gt;) {&nbsp; list of statements&nbsp; }&nbsp;<span style="font-weight: bold;"></span></td>
+      <td style="vertical-align: top;">if ($c&gt;0) {$c--;}<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">repeat while (&lt;condition&gt;) {&nbsp; &lt;statement(s)&gt; &nbsp;&nbsp; };<br>
+      </td>
+      <td style="vertical-align: top;">repeat while ($r &amp;&amp; $b)<br>
+{<br>
+&nbsp;$f++;<br>
+}<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">repeat&nbsp; {&nbsp; &lt;statement(s)&gt; &nbsp;&nbsp; } while (&lt;condition&gt;);</td>
+      <td style="vertical-align: top;">repeat<br>
+{<br>
+$line=readline();<br>
+} while ($line !='');<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">repeat until (&lt;condition&gt;) { &lt; statement(s) &gt; &nbsp; };</td>
+      <td style="vertical-align: top;">repeat until ($line =='');<br>
+
+{<br>
+
+$line=readline();<br>
+
+} <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">repeat {  &lt;statement(s) &gt;&nbsp; } until ( &lt;condition&gt; ) ;<br>
+      </td>
+      <td style="vertical-align: top;">repeat { fixprogram(); } until ($errors==0);<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unless ( &lt;condition&gt; ) {&nbsp; &lt;statement(s)&gt; &nbsp;&nbsp; };</td>
+      <td style="vertical-align: top;">unless ($g) { $g--;say ("once in the loop");}<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">return &lt;expression&gt;;<br>
+      </td>
+      <td style="vertical-align: top;">return 5;<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">goto &lt;labelname&gt; ;<br>
+      </td>
+      <td style="vertical-align: top;">goto aftertheblock ;<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">last;<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">next;<br>
+next &lt;labelname&gt;;<br>
+      </td>
+      <td style="vertical-align: top;">next loop1;<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body></html>

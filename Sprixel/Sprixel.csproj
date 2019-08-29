@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3749FEEF-931D-4A15-86E1-E1EE5AB3610D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Sprixel</RootNamespace>
+    <AssemblyName>Sprixel</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <StartupObject>Sprixel.MainClass</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Sprixel.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>none</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Sprixel.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>none</ErrorReport>
+    <CodeAnalysisRuleSet>BasicCorrectnessRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Sprixel.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>none</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Sprixel.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>none</ErrorReport>
+    <CodeAnalysisRuleSet>BasicCorrectnessRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Sprixel.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>none</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Sprixel.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>none</ErrorReport>
+    <CodeAnalysisRuleSet>BasicCorrectnessRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Microsoft\BigInteger.cs" />
+    <Compile Include="Microsoft\BigRational.cs" />
+    <Compile Include="Microsoft\ExceptionUtils.cs" />
+    <Compile Include="Microsoft\MathUtils.cs" />
+    <Compile Include="Microsoft\StringUtils.cs" />
+    <Compile Include="Novell\NDesk.Options\Options.cs" />
+    <Compile Include="RunSharp\ArrayUtils.cs" />
+    <Compile Include="RunSharp\AssemblyGen.cs" />
+    <Compile Include="RunSharp\AttributeGen.cs" />
+    <Compile Include="RunSharp\BranchSet.cs" />
+    <Compile Include="RunSharp\CodeGen.cs" />
+    <Compile Include="RunSharp\CodeGen.Helpers.cs" />
+    <Compile Include="RunSharp\CodeGen.Statements.cs" />
+    <Compile Include="RunSharp\ConstructorGen.cs" />
+    <Compile Include="RunSharp\Conversion.cs" />
+    <Compile Include="RunSharp\GenTypeGen.cs" />
+    <Compile Include="RunSharp\DelegateGen.cs" />
+    <Compile Include="RunSharp\DynamicMethodGen.cs" />
+    <Compile Include="RunSharp\EventGen.cs" />
+    <Compile Include="RunSharp\Exp.cs" />
+    <Compile Include="RunSharp\FieldGen.cs" />
+    <Compile Include="RunSharp\MethodGen.cs" />
+    <Compile Include="RunSharp\Operand.cs" />
+    <Compile Include="RunSharp\Operands\ArrayAccess.cs" />
+    <Compile Include="RunSharp\Operands\ArrayLength.cs" />
+    <Compile Include="RunSharp\Operands\Assignment.cs" />
+    <Compile Include="RunSharp\Operands\Cast.cs" />
+    <Compile Include="RunSharp\Operands\Conditional.cs" />
+    <Compile Include="RunSharp\Operands\IsInst.cs" />
+    <Compile Include="RunSharp\Operands\DecimalLiteral.cs" />
+    <Compile Include="RunSharp\Operands\DoubleLiteral.cs" />
+    <Compile Include="RunSharp\Operands\EnumLiteral.cs" />
+    <Compile Include="RunSharp\Operands\Field.cs" />
+    <Compile Include="RunSharp\Operands\FloatLiteral.cs" />
+    <Compile Include="RunSharp\Operands\InitializedArray.cs" />
+    <Compile Include="RunSharp\Operands\IntLiteral.cs" />
+    <Compile Include="RunSharp\Operands\Invocation.cs" />
+    <Compile Include="RunSharp\Operands\LongLiteral.cs" />
+    <Compile Include="RunSharp\Operands\NewArray.cs" />
+    <Compile Include="RunSharp\Operands\NewDelegate.cs" />
+    <Compile Include="RunSharp\Operands\NewObject.cs" />
+    <Compile Include="RunSharp\Operands\OverloadableOperation.cs" />
+    <Compile Include="RunSharp\Operands\PostfixOperation.cs" />
+    <Compile Include="RunSharp\Operands\PrefixOperation.cs" />
+    <Compile Include="RunSharp\Operands\Property.cs" />
+    <Compile Include="RunSharp\Operands\SimpleOperation.cs" />
+    <Compile Include="RunSharp\Operands\StringLiteral.cs" />
+    <Compile Include="RunSharp\Operands\TypeLiteral.cs" />
+    <Compile Include="RunSharp\Operator.cs" />
+    <Compile Include="RunSharp\OverloadResolver.cs" />
+    <Compile Include="RunSharp\ParameterGen.cs" />
+    <Compile Include="RunSharp\PropertyGen.cs" />
+    <Compile Include="RunSharp\RoutineGen.cs" />
+    <Compile Include="RunSharp\SignatureGen.cs" />
+    <Compile Include="RunSharp\Static.cs" />
+    <Compile Include="RunSharp\TypeGen.cs" />
+    <Compile Include="RunSharp\TypeInfo.cs" />
+    <Compile Include="RunSharp\Utils.cs" />
+    <Compile Include="src\Compiler\FrameScope.cs" />
+    <Compile Include="src\Compiler\FrameLocal.cs" />
+    <Compile Include="src\Grammar\CircumfixOp.cs" />
+    <Compile Include="src\Grammar\CircumfixGoal.cs" />
+    <Compile Include="src\Grammar\Assert.cs" />
+    <Compile Include="src\Grammar\ParseEnv.cs" />
+    <Compile Include="src\Grammar\Final.cs" />
+    <Compile Include="src\Grammar\Finished.cs" />
+    <Compile Include="src\Grammar\Lookbehind.cs" />
+    <Compile Include="src\Grammar\ReduceInfix.cs" />
+    <Compile Include="src\Grammar\ReduceAction.cs" />
+    <Compile Include="src\Grammar\OperatorDetails.cs" />
+    <Compile Include="src\Grammar\hi.cs" />
+    <Compile Include="src\Grammar\PostCircumfixOp.cs" />
+    <Compile Include="src\Grammar\PostfixOp.cs" />
+    <Compile Include="src\Grammar\PrefixOp.cs" />
+    <Compile Include="src\Grammar\InfixOp.cs" />
+    <Compile Include="src\Grammar\Expr.cs" />
+    <Compile Include="src\Grammar\Not.cs" />
+    <Compile Include="src\Grammar\Lookahead.cs" />
+    <Compile Include="src\Grammar\MState.cs" />
+    <Compile Include="src\Grammar\BinaryPattern.cs" />
+    <Compile Include="src\Compiler\Continuation.cs" />
+    <Compile Include="src\Compiler\CompilationUnit.cs" />
+    <Compile Include="src\Grammar\Beginning.cs" />
+    <Compile Include="src\Grammar\Both.cs" />
+    <Compile Include="src\Grammar\AnyChar.cs" />
+    <Compile Include="src\Grammar\Repetition.cs" />
+    <Compile Include="src\Grammar\ProtoSymbol.cs" />
+    <Compile Include="src\Grammar\PatternCall.cs" />
+    <Compile Include="src\Grammar\PatternRef.cs" />
+    <Compile Include="src\Grammar\Fail.cs" />
+    <Compile Include="src\Grammar\RangeChar.cs" />
+    <Compile Include="src\Grammar\NamedGroup.cs" />
+    <Compile Include="src\Grammar\Either.cs" />
+    <Compile Include="src\Grammar\End.cs" />
+    <Compile Include="src\Grammar\Empty.cs" />
+    <Compile Include="src\Grammar\IBackTracking.cs" />
+    <Compile Include="src\Grammar\RefCall.cs" />
+    <Compile Include="src\Grammar\State.cs" />
+    <Compile Include="src\Grammar\Transition.cs" />
+    <Compile Include="src\Grammar\UnitPattern.cs" />
+    <Compile Include="src\Grammar\Literal.cs" />
+    <Compile Include="src\Grammar\Match.cs" />
+    <Compile Include="src\Grammar\Matcher.cs" />
+    <Compile Include="src\Grammar\Grammar.cs" />
+    <Compile Include="src\Grammar\Pattern.cs" />
+    <Compile Include="src\Compiler\InputSource.cs" />
+    <Compile Include="src\Compiler\Declaration.cs" />
+    <Compile Include="src\Compiler\IInstruction.cs" />
+    <Compile Include="src\Compiler\PrototypeChain.cs" />
+    <Compile Include="src\Compiler\Test1.cs" />
+    <Compile Include="src\Grammar\UnaryPattern.cs" />
+    <Compile Include="src\Compiler\UTF32String.cs" />
+    <Compile Include="src\Compiler\Wrapper.cs" />
+    <Compile Include="src\Perlesque\ControlFlow.cs" />
+    <Compile Include="src\Perlesque\Declarations.cs" />
+    <Compile Include="src\Perlesque\Terminals.cs" />
+    <Compile Include="src\Perlesque\Operators.cs" />
+    <Compile Include="src\Perlesque\Expressions.cs" />
+    <Compile Include="src\Perlesque\TopLevel.cs" />
+    <Compile Include="src\Types\array.cs" />
+    <Compile Include="src\Types\list_int.cs" />
+    <Compile Include="src\Types\sub.cs" />
+    <Compile Include="src\Types\buf.cs" />
+    <Compile Include="RunSharp\dd.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="t\basic.t" />
+    <None Include="t\class.t" />
+    <None Include="t\comments.t" />
+    <None Include="t\controlflow.t" />
+    <None Include="t\grammar1.t" />
+    <None Include="t\useinclude.t" />
+    <None Include="t\parse_bug3.t" />
+    <None Include="t\goto.t" />
+    <None Include="t\if.t" />
+    <None Include="t\literalstring.t" />
+    <None Include="t\man_or_boy.t" />
+    <None Include="t\operators.t" />
+    <None Include="t\p6capture.t" />
+    <None Include="t\parse_bug.t" />
+    <None Include="t\parse_bug2.t" />
+    <None Include="t\parse_bug3.t" />
+    <None Include="t\self.t" />
+    <None Include="t\subs.t" />
+    <None Include="t\types.t" />
+    <None Include="t\virtual.t" />
+    <None Include="t\generic1.t" />
+    <None Include="t\contextuals.t" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\perl6\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

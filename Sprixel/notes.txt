@@ -1,0 +1,53 @@
+﻿Sprixel notes/roadmap
+
+TODO:
+
+- overall goal: enough to handle the subset of Perl 6 that gimme5
+    can translate from STD.pm
+- script-oriented: one top-level compilation unit, no 'use Module'
+    support
+- postcircumfix<[ ]> indexes as a buf or an Array.
+- hashes (% sigil)
+- string concatenation operator ~ (auto-stringifies)
+- the overall script is always compiled to an .exe (the resulting
+    compiler), which is linked to Sprixel.exe and RunSharp.dll
+    (and any other intervening stages)
+- the sprixel0 user will write his runtime library in the
+    sprixel0 language, and the code generated from his Grammar
+    will be emitted to a new compiler, referencing the runtime
+    library.  that runtime library of closures will be translated
+    to a tree of classes, with each local being a member of the
+    class representing its lexical scope, and new instances of
+    the lexical scope (invocations of the closure) also contain
+    fields holding references to the arguments.
+- exceptions: no exception handling in the generated compilers;
+    the compiler-compiler's user must implement their own
+    exception handling.
+
+DEPRECATED IDEAS:
+
+Performance:
+- convert the tree/chain data structures (RefCall, Match, & State)
+    to structs with pointers instead of classes with ref fields.
+- as much as the full Grammar support as possible (seems like all
+    of it should be)
+
+
+FINISHED:
+
+- BigInteger & Complex64 (from DLR) available as types
+- all of .NET available as types
+- method calls (postcircumfix<( )>) on objects with argument
+    expressions
+- fully strongly/verbosely typed (no type inference, no Mu, no
+    Cool, no Any)
+- no aliases, just assignment (aliases would require another
+    level of indirection of all variables to "slots" (or getters))
+- all variables are scalars (dollar sigil), since this can be
+    mapped directly to the "C#-ish" codegen form that RunSharp
+    supports (including value types vs. reference types)
+- all the block-ish control flow operations
+- correctly implemented labels/gotos/break
+- proper closures (subs with typed parameters)
+- most math operations on scalars
+- contextuals (mostly)
